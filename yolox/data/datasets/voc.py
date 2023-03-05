@@ -59,6 +59,8 @@ class AnnotationTransform(object):
             if not self.keep_difficult and difficult:
                 continue
             name = obj.find("name").text.strip()
+            if name not in {'0','5','9','12','23'}:
+                continue
             bbox = obj.find("bndbox")
 
             pts = ["xmin", "ymin", "xmax", "ymax"]

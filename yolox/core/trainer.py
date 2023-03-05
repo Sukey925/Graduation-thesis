@@ -333,7 +333,7 @@ class Trainer:
             )
 
         update_best_ckpt = ap50_95 > self.best_ap
-        self.best_ap = max(self.best_ap, ap50_95)
+        self.best_ap = max(self.best_ap, ap50_95*0.9 + ap50*0.1)
 
         if self.rank == 0:
             if self.args.logger == "tensorboard":
